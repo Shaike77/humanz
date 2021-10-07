@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title id=WebName>Clients DB</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/albumPage.css">
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.410.0.min.js"></script>
+  <script src="https://rawgit.com/aws/amazon-cognito-identity-js/master/dist/aws-cognito-sdk.min.js"></script>
+  <script src="https://rawgit.com/aws/amazon-cognito-identity-js/master/dist/amazon-cognito-identity.min.js"></script>
+  <script src="js/albumPage.js"></script>
+</head>
+
+
+<body>
+  <header>
+    <div id="title">Shai's Client Gallery</div>
+        <div id="auth">
+      <div id="hello" style="display: none"></div>
+      <button type="button" class="btn btn-primary" id="signinb" data-toggle="modal" data-target="#signin">add a client</button>
+    </div>
+  </header>
+  <main>
+    <div id="getClientsDiv">
+      <button id="getClientsBtn" type="button">Get Clients</button>
+    </div>
+  </main>
+</body>
+</html>
+
+ <div class="modal fade" id="signin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add a Client</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-body">
+          <!-- <form method="post"> -->
+            <div class="form-group">
+              <i class="fa fa-user"></i>
+              <p>Full Name: <input id="client_name" name="client_name" type="text" placeholder="name"/></p>
+            </div>
+            <div class="form-group">
+              <i class="fa fa-lock"></i>
+              <p>ID:  <input id="personal_id" name="id" type="text" placeholder="ID here" /></p>
+            </div>
+            <div class="form-group">
+                <i class="fa fa-lock"></i>
+                Phone: <input id="client_phone" name="client_phone" type="text" placeholder="Phone number here" />
+            </div>
+            <div class="form-group">
+            <i class="fa fa-lock"></i>
+            IP: <input id="client_ip" name="client_ip" type="text" placeholder="IP address here" />
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" onclick="clickListener()">Add a Client</button>
+            </div>
+          <!-- </form> -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
